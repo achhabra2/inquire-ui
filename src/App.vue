@@ -1,29 +1,58 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
-</template>
-
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+body {
+  overflow: auto;
 }
 </style>
+
+<template>
+<div id="app" class="cui">
+  <div class="content-fluid">
+    <Sidebar :active="sideBarActive"></Sidebar>
+    <main>
+      <Navbar></Navbar>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
+      <ui-footer></ui-footer>
+    </main>
+  </div>
+</div>
+</template>
+
+<script>
+import Vue from 'vue';
+import Navbar from './components/views/Navbar.vue';
+import Sidebar from './components/views/Sidebar.vue';
+import UiFooter from './components/views/Footer.vue';
+
+export default {
+  name: 'app',
+  components: {
+    Navbar,
+    Sidebar,
+    UiFooter,
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    sideBarActive() {
+      return this.$store.state.sideBarActive;
+    },
+  },
+  mounted() {
+    this.$store
+      .dispatch('auth/authenticate')
+      .catch(error => console.log('Unauthenticated...'));
+  },
+};
+</script>
