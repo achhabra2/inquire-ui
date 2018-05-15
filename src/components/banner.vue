@@ -2,10 +2,10 @@
 <div class="hero hero--indigo hero--regular">
   <div class="container">
     <div class="hero__content text-center">
-      <h1>Spark Space:
+      <h1>
         <span>{{msg}}</span>
       </h1>
-      <h3>Automatically Generated FAQ Page</h3>
+      <h3>FAQ Page</h3>
     </div>
   </div>
 </div>

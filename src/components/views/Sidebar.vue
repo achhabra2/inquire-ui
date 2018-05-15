@@ -5,7 +5,6 @@
   </div>
   <ul>
     <router-link
-      v-if="isAuthenticated"
       to="/announcements"
       tag="li"
       class="sidebar__item"
@@ -54,5 +53,4 @@ export default {
 </script>
 
 <style>
-
 </style>

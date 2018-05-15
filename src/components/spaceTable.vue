@@ -38,7 +38,7 @@
       <vuetable-pagination ref="pagination" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
     </div>
   </div>
-  <div v-if="showModalEdit">
+  <template v-if="showModalEdit">
     <div class="modal-backdrop"
       :class="{hide: !showModalEdit}"></div>
     <modal-edit
@@ -47,7 +47,7 @@
       @action="handleEditQuestion"
       :text="modalEditData.html? modalEditData.html : modalEditData.text"
       title="Edit Question"></modal-edit>
-  </div>
+  </template>
 </div>
 </template>
 
@@ -93,29 +93,34 @@ export default {
       loading: true,
       showModalEdit: false,
       css: {
-        tableClass:
-          'table table--bordered table--hover table--highlight table--wrap',
+        tableClass: 'table table--bordered table--highlight table--wrap',
       },
       fields: [
         {
           name: 'sequence',
           title: '#',
           sortField: 'sequence',
+          titleClass: 'max-10',
         },
         {
           name: '__slot:question',
           title: 'Question',
+          titleClass: 'max-50',
         },
         {
           name: 'displayName',
           title: 'Questioner',
           sortField: 'displayName',
+          titleClass: 'collapsable',
+          dataClass: 'collapsable',
         },
         {
           name: 'createdOn',
           title: 'Date',
           callback: 'formatDate|MM-DD-YYYY',
           sortField: 'createdOn',
+          titleClass: 'collapsable',
+          dataClass: 'collapsable',
         },
         {
           name: 'answers.length',
@@ -124,6 +129,8 @@ export default {
         {
           name: '__slot:actions',
           title: 'Actions',
+          titleClass: 'collapsable',
+          dataClass: 'collapsable',
         },
       ],
       selection: '',
@@ -326,5 +333,39 @@ export default {
 <style>
 .wrapfix {
   white-space: normal;
+}
+.max-10 {
+  width: 10%;
+}
+.max-50 {
+  width: 60%;
+}
+/* td.collapsable {
+  display: none;
+}
+
+@media only screen and (min-width: 450px) {
+  td.collapsable {
+    display: table-cell;
+  }
+} */
+/* Note: Design for a width of 320px */
+@media all and (max-width: 479px) {
+  td.collapsable {
+    display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: collapse;
+  }
+}
+@media all and (max-width: 479px) {
+  th.collapsable {
+    display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: collapse;
+  }
 }
 </style>

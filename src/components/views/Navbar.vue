@@ -4,12 +4,12 @@
         <a class="btn btn--small btn--icon toggle-menu" @click="toggleSideBar">
           <span class="icon-list-menu"></span>
         </a>
-        <a class="header-bar__logo">
-            <span class="icon-cisco"></span>
-        </a>
+        <div class="header-bar__logo">
+            <img class="thumb thumb--medium" :src="require('../../assets/WebexTeams_Icon_only.png')">
+        </div>
         <div class="header-bar__main">
             <div class="header-heading">
-                <h1 class="page-title">Inquire App</h1>
+                <h1 class="page-title">Inquire</h1>
             </div>
         </div>
         <div class="header-toolbar">
@@ -19,17 +19,11 @@
             <span>&nbsp; &nbsp;</span>
               <router-link to="/logout" class="item" href="#">
                 <span>Log Out</span>
-                <!-- <a class="btn btn--small btn--icon btn--negative">
-                    <span class="icon-close"></span>
-                </a> -->
               </router-link>
           </template>
           <template v-else>
             <router-link to="/login" class="item">
               <span>Log In</span>
-              <!-- <a class="btn btn--small btn--icon">
-                  <span class="icon-tools"></span>
-              </a> -->
             </router-link>
           </template>
         </div>
@@ -66,5 +60,4 @@ export default {
 </script>
 
 <style>
-
 </style>

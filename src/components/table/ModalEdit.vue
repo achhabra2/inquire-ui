@@ -1,5 +1,5 @@
 <template>
-<div class="modal modal--animated" :class="{hide: hidden}" id="modal-login">
+<div class="modal" :class="{hide: hidden}" id="modal-login">
     <div class="modal__dialog">
         <div class="modal__content">
             <a class="modal__close" @click="$emit('close')"><span class="icon-close"></span></a>
@@ -54,3 +54,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.abs-top {
+  position: sticky;
+}
+</style>

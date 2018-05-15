@@ -1,5 +1,5 @@
   <template>
-    <div>
+    <div class="custom-actions">
       <button class="btn btn--icon btn--small" @click="onAction('view-item', rowData, rowIndex)"><span class="icon-zoom-in"></span></button>
       <button class="btn btn--icon btn--small" @click="onAction('edit-item', rowData, rowIndex)"><span class="icon-draw"></span></button>
       <button class="btn btn--icon btn--small btn--negative" @click="onAction('delete-item', rowData, rowIndex)"><span class="icon-trash"></span></button>
@@ -30,10 +30,7 @@ export default {
 </script>
 
   <style>
-.custom-actions button.ui.button {
-  padding: 8px 8px;
-}
-.custom-actions button.ui.button > i.icon {
-  margin: auto !important;
+.custom-actions {
+  min-width: 120px;
 }
 </style>

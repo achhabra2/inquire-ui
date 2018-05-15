@@ -3,10 +3,10 @@
   <table class="table table--bordered table--wrap">
     <thead>
       <tr>
-        <th class="center aligned one wide">#</th>
-        <th class="ten wide">Answer</th>
+        <th class="center aligned max-10">#</th>
+        <th class="max-50">Answer</th>
         <th class="two wide">Date</th>
-        <th class="three wide">Answerer</th>
+        <th class="three wide collapsable">Answerer</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
           <vue-markdown :source="answer.html ? answer.html : answer.text"></vue-markdown>
         </td>
         <td>{{answer.createdOn|formatDate}}</td>
-        <td>{{answer.displayName}}</td>
+        <td class="collapsable">{{answer.displayName}}</td>
       </tr>
     </tbody>
   </table>
@@ -36,6 +36,9 @@ export default {
   components: {
     VueMarkdown,
     addQuestion,
+  },
+  data() {
+    return {};
   },
   props: {
     rowData: {

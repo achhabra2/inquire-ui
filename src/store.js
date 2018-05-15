@@ -155,6 +155,7 @@ const store = new Vuex.Store({
     service('users'),
     service('motds'),
     service('questions'),
+    service('feedback'),
     auth({ userService: 'users' }),
   ],
 });

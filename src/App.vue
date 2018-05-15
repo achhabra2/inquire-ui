@@ -33,6 +33,9 @@ import Vue from 'vue';
 import Navbar from './components/views/Navbar.vue';
 import Sidebar from './components/views/Sidebar.vue';
 import UiFooter from './components/views/Footer.vue';
+import Toast from './components/elements/Toast.vue';
+
+Vue.component('toast', Toast);
 
 export default {
   name: 'app',
