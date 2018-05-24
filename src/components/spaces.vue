@@ -23,10 +23,13 @@ div(class="content")
                         template(v-if="space.teamName")
                           span Team &nbsp;
                           span(class="label label--info") {{space.teamName}}
-                        span &nbsp; Questions &nbsp;
-                        span(class="label label--circle label--success") {{space.sequence}}
+                        template(v-if="space.answerCount")
+                          span &nbsp; Ans. &nbsp;
+                          span(class="label label--circle label--warning") {{space.answerCount}}
+                        span &nbsp; Ques. &nbsp;
+                        span(class="label label--circle label--success") {{space.questionCount ||space.sequence}}
                         span &ensp;
-                        span Moderation &nbsp;
+                        span Mod. &nbsp;
                         span(v-if="space.moderators && space.moderators.length > 0" class="icon-lock")
                         span(v-else class="icon-unlock")
                         div(class="pull-right")
@@ -67,7 +70,8 @@ export default {
     }),
   },
   mounted() {
-    this.$store.dispatch('spaces/find');
+    const params = { query: { $limit: 99 } };
+    this.$store.dispatch('spaces/find', params);
   },
   watch: {
     userSpacesLoaded(bool) {
@@ -125,5 +129,4 @@ export default {
 </script>
 
 <style>
-
 </style>

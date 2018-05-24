@@ -2,10 +2,7 @@
   <footer class="footer-distributed ui container">
 
   <div class="footer-right">
-
-    <a href="https://www.facebook.com/achhabra1">
-      <i class="facebook icon"></i>
-    </a>
+    <img :src="require('../../assets/innovation-team.png')">
     <a href="https://www.linkedin.com/in/aman-chhabra-54884b24/">
       <i class="linkedin icon"></i>
     </a>
@@ -16,7 +13,6 @@
   </div>
 
   <div class="footer-left">
-
     <p class="footer-links">
       <a href="#/about">About</a>
       ·
@@ -35,5 +31,4 @@ export default {};
 </script>
 
 <style>
-
 </style>

@@ -1,5 +1,5 @@
 <template>
-<button class="btn" :class="classNames" @click="exportData">
+<button class="btn btn--small" :class="classNames" @click="exportData">
   Export
 </button>
 </template>
@@ -127,5 +127,4 @@ export default {
 </script>
 
 <style>
-
 </style>

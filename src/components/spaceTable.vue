@@ -23,8 +23,10 @@
             :initial-data="(props.rowData.html) ? props.rowData.html : props.rowData.text"
             v-if="showModalEdit">
           </modal-text-area> -->
-          <vue-markdown :source="(props.rowData.html) ? props.rowData.html : props.rowData.text">
-          </vue-markdown>
+          <span @click="onCellClicked(props.rowData)" v-if="props.rowData.html" v-html="props.rowData.html"></span>
+          <span @click="onCellClicked(props.rowData)" v-else>{{props.rowData.text}}</span>
+          <!-- <vue-markdown v-html="(props.rowData.html) ? props.rowData.html : props.rowData.text">
+          </vue-markdown> -->
         </template>
         <template slot="actions" scope="props">
             <actions :row-data="props.rowData" :row-index="props.rowIndex" :on-action="onAction">
@@ -224,6 +226,9 @@ export default {
     },
     toggleModalEdit() {
       this.showModalEdit = !this.showModalEdit;
+      if (this.showModalEdit) {
+        window.scrollTo(0, 0);
+      }
     },
     async handleEditQuestion(text) {
       this.toggleModalEdit();
@@ -253,6 +258,7 @@ export default {
         personEmail: this.$store.state.auth.user.email,
         personId: this.$store.state.auth.user.ciscosparkId,
         text,
+        html: text,
         displayName: this.$store.state.auth.user.displayName,
         sequence: newSpace.sequence,
         createdOn: Date.now(),
@@ -280,6 +286,7 @@ export default {
         personId: this.$store.state.auth.user.ciscosparkId,
         displayName: this.$store.state.auth.user.displayName,
         text: data.answer,
+        html: data.answer,
         createdOn: Date.now(),
       };
       const query = {
@@ -298,13 +305,13 @@ export default {
           .patch(null, update, { query });
         this.loading = false;
         this.$emit('loading:change', false);
-        this.openToast('Question Creation Successful', 'et-info');
+        this.openToast('Answer Creation Successful', 'et-info');
         this.$nextTick(() => this.$refs.vuetable.refresh());
       } catch (error) {
         console.error(error);
         this.loading = false;
         this.$emit('loading:change', false);
-        this.openToast('Could not add question', 'et-warn');
+        this.openToast('Could not add answer', 'et-warn');
         this.$nextTick(() => this.$refs.vuetable.refresh());
       }
     },

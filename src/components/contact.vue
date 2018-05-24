@@ -1,7 +1,7 @@
 <template>
 <header-container :loading="loading" title="Submit Feedback">
   <template slot="content">
-      <div class="col-md-6 base-margin-top">
+      <div class="col-md-6 center-margin">
         <h2>Feedback Form</h2>
         <br />
           <form>
@@ -19,7 +19,7 @@
             <button @click="submitFeedback" class="btn btn--primary">Submit</button>
           </form>
       </div>
-      <div class="col-md-6 base-margin-top">
+      <div class="col-md-6 center-margin">
         <h2>Recent Feedback</h2>
         <br />
         <ul class="list" v-if="!feedbacksLoaded">
@@ -140,4 +140,7 @@ export default {
 </script>
 
 <style>
+.center-margin {
+  margin: 10 auto 10 auto;
+}
 </style>

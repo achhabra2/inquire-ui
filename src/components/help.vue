@@ -1,94 +1,28 @@
 <template>
-    <div class="ui text container very padded">
-      <div>
-        <div class="hero hero--indigo">
-          <div class="container">
-              <div class="hero__content">
-                  <h1>Help</h1>
-                  <p>Instructions on how to use Inquire. </p>
-              </div>
-          </div>
-        </div>
-      <div class="ui attached raised segment">
-        <div class="ui relaxed divided big list">
-          <div class="item">
-            <i class="plus square outline icon"></i>
-            <div class="content">
-            <div class="header">
-            Step 1: Add Inquire bot to your Spark Space.
-            </div>
-            <div class="description">
-              Hint: Find Inquire with the email inquire@sparkbot.io.
-              <p></p>
-            </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="comments outline icon"></i>
-            <div class="content">
-            <div class="header">
-            Step 2: Tag "<code>@Inquire</code>" in a question.
-            </div>
-            <div class="description">
-              Any statement Inquire records that does not match another command will be logged as a question.
-              <p></p>
-              <div class="ui tiny message">
-              <p> Example: <code>@Inquire What color is the sky? </code> </p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="comment icon"></i>
-            <div class="content">
-            <div class="header">
-            Anyone can answer your question!
-            </div>
-            <div class="description">
-              Other members of your spark space may answer your question with the
-              <p> <code>[answer or /a] [question number] [response]</code> format. </p>
-              <div class="ui tiny message">
-              <p> Example: <code>@Inquire answer 5 The sky is blue. </code> </p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="unordered list icon"></i>
-            <div class="content">
-            <div class="header">
-            View open questions with "<code>@Inquire open</code>".
-            </div>
-            <div class="description">
-              Use the <code>open</code> command to view open questions in a space.
-              <div class="ui tiny message">
-              <p> Example: <code>@Inquire open </code> </p>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div class="item">
-            <i class="browser icon"></i>
-            <div class="content">
-            <div class="header">
-            Visit the FAQ list here with "<code>@Inquire list</code>".
-            </div>
-            <div class="description">
-              Use the "<code>list</code>" command visit the FAQ list webpage.
-              <div class="ui tiny message">
-              <p> Example: <code>@Inquire list </code> </p>
-            </div>
-            </div>
-            </div>
-          </div>
-        </div>
+<header-container :loading="motdsLoaded" title="Help">
+  <template slot="content">
+    <div class="media">
+      <div class="media__video">
+        <iframe src="https://cisco.app.box.com/embed/s/qqctd6lh9l5zxi58185krqvn80az5mxi" width="800" height="550" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
       </div>
     </div>
-  </div>
+    <div class="media">
+      <div class="media__video">
+       <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_EBo1Q4Z4Bg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </template>
+</header-container>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+import HeaderContainer from './elements/Header.vue';
+
 export default {
+  components: {
+    HeaderContainer,
+  },
   data() {
     return {};
   },
@@ -97,6 +31,29 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="scss">
+.media {
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  &__video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    background: gray;
+    iframe,
+    object,
+    embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
 </style>

@@ -6,6 +6,7 @@
         <span>{{msg}}</span>
       </h1>
       <h3>FAQ Page</h3>
+      <slot name="content"></slot>
     </div>
   </div>
 </div>
@@ -25,5 +26,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
 </style>

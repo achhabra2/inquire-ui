@@ -5,8 +5,7 @@
   "scripts": {
     "serve": "PORT=3030 vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "postbuild":
-      "rm -rf /Users/amachhab/Documents/code/inquire-v2/public/* && cp -r ./dist/* /Users/amachhab/Documents/code/inquire-v2/public/",
+    "postbuild": "rm -rf /Users/amachhab/Documents/code/inquire-v2/public/* && cp -r ./dist/* /Users/amachhab/Documents/code/inquire-v2/public/",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -40,8 +39,14 @@
     "@vue/eslint-config-airbnb": "^3.0.0-beta.6",
     "node-sass": "^4.7.2",
     "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "pug-plain-loader": "^1.0.0",
     "sass-loader": "^6.0.6",
     "vue-template-compiler": "^2.5.13"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
