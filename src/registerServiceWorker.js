@@ -17,13 +17,14 @@ if (process.env.NODE_ENV === 'production') {
       button.style.position = 'absolute';
       button.style.bottom = '24px';
       button.style.left = '24px';
+      button.style.zIndex = 100;
       button.setAttribute('class', 'btn btn--success');
       button.textContent = 'Click to update';
 
       button.addEventListener('click', () => {
         button.disabled = true;
         setTimeout(() => {
-          window.location.reload();
+          window.location.reload(true);
         }, 200);
       });
 

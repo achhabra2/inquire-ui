@@ -1,13 +1,10 @@
 <template>
-<form>
   <div class="form-group">
     <div class="form-group__text">
-      <input id="addq" type="text" v-model="inputText" @keyup.enter="processInput">
-      <label for="text">Enter {{field}}</label>
-      <button @click="processInput" type="button" class="link">Send</button>
+      <input type="text" v-model="inputText" @keyup.enter="processInput">
+      <label>Enter {{field}}</label>
     </div>
   </div>
-</form>
 </template>
 
 <script>
@@ -29,8 +26,10 @@ export default {
   },
   methods: {
     processInput(event) {
+      event.preventDefault();
       this.$emit('action', this.inputText);
       this.inputText = '';
+      event.target.blur();
     },
   },
 };

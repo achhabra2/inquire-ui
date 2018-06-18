@@ -11,7 +11,7 @@
   <router-link to="/help" class="item"><a>Help</a></router-link>
   <router-link to="/contact" class="item"><a>Feedback</a></router-link>
   <div v-if="isAuthenticated" class="ui simple dropdown item">
-    <img class="ui avatar image bordered" :src="userAvatar" />
+    <img class="thumb thumb--medium thumb--bordered" :src="userAvatar" />
     <span>&nbsp; {{userDisplayName}}</span>
     <div class="menu">
       <router-link to="/logout" class="item" href="#">Logout</router-link>
@@ -35,8 +35,8 @@ export default {
   },
   computed: {
     path() {
-      let regex = /space/i;
-      let match = regex.exec(this.$store.state.route.path);
+      const regex = /space/i;
+      const match = regex.exec(this.$store.state.route.path);
       if (match) return true;
       return false;
     },
@@ -58,5 +58,4 @@ export default {
 };
 </script>
 <style>
-
 </style>

@@ -8,13 +8,13 @@
 .fade-leave-to {
   opacity: 0;
 }
-body {
-  overflow: auto;
+body.cui {
+  overflow: auto !important;
 }
 </style>
 
 <template>
-<div id="app" class="cui">
+<div id="app">
   <div class="content-fluid">
     <Sidebar :active="sideBarActive"></Sidebar>
     <main>

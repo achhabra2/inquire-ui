@@ -7,6 +7,7 @@
       <option>Unanswered</option>
       <option>All</option>
     </select>
+    <label for="input-type-select">Filter By</label>
   </div>
 </div>
 </template>
@@ -23,5 +24,4 @@ export default {
 </script>
 
 <style>
-
 </style>

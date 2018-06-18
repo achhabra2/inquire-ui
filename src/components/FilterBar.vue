@@ -1,16 +1,10 @@
 <template>
-<form>
   <div class="form-group">
     <div class="form-group__text">
-      <input type="search" v-model="filterText" @keyup.enter="doFilter">
+      <input type="search" name="q" placeholder="Type a keyword" v-model="filterText" @keyup.enter="doFilter" @search="doFilter">
       <label for="search">Search Questions</label>
-      <button class="link" type="button" @click="doFilter">
-        <span class="icon-search"></span>
-      </button>
-      <!-- <button class="link" @click="resetFilter"><span class="icon-tools"></span></button> -->
     </div>
   </div>
-</form>
 </template>
 
 <script>
@@ -21,7 +15,9 @@ export default {
     };
   },
   methods: {
-    doFilter() {
+    doFilter(event) {
+      event.preventDefault();
+      event.target.blur();
       this.$emit('filter-set', this.filterText);
     },
     resetFilter() {
@@ -32,5 +28,4 @@ export default {
 };
 </script>
 <style>
-
 </style>

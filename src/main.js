@@ -4,7 +4,6 @@ import VueRouter from 'vue-router';
 import { sync } from 'vuex-router-sync';
 import Toast from 'vue-easy-toast';
 import moment from 'moment';
-import 'semantic-ui-css/semantic.min.css';
 import './cisco-ui/css/cui-standard.min.css';
 import './registerServiceWorker';
 import App from './App.vue';

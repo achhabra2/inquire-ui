@@ -14,7 +14,8 @@
         </div>
         <div class="header-toolbar">
           <template v-if="isAuthenticated">
-            <img class="ui avatar image bordered" :src="userAvatar" v-if="userAvatar"/>
+            <img class="thumb thumb--small thumb--bordered" :src="userAvatar" v-if="userAvatar"/>
+            <span>&nbsp; &nbsp;</span>
             <span v-if="userDisplayName">{{userDisplayName}}</span>
             <span>&nbsp; &nbsp;</span>
               <router-link to="/logout" class="item" href="#">
