@@ -6,7 +6,9 @@
     "serve": "PORT=3030 vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "postbuild": "rm -rf /Users/amachhab/Documents/code/inquire-v2/public/* && cp -r ./dist/* /Users/amachhab/Documents/code/inquire-v2/public/"
+    "postbuild": "rm -rf /Users/amachhab/Documents/code/inquire-v2/public/* && cp -r ./dist/* /Users/amachhab/Documents/code/inquire-v2/public/",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@feathersjs/authentication-client": "^1.0.2",
@@ -22,7 +24,7 @@
     "register-service-worker": "^1.0.0",
     "semantic-ui-css": "^2.3.1",
     "socket.io-client": "^2.1.0",
-    "vue": "^2.5.13",
+    "vue": "^2.5.17",
     "vue-easy-toast": "^1.0.5",
     "vue-events": "^3.1.0",
     "vue-markdown": "^2.2.4",
@@ -31,7 +33,8 @@
     "vue2-animate": "^1.0.4",
     "vuetable-2": "^1.7.5",
     "vuex": "^3.0.1",
-    "vuex-router-sync": "^5.0.0"
+    "vuex-router-sync": "^5.0.0",
+    "snyk": "^1.116.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.6",
@@ -50,5 +53,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "snyk": true
 }
